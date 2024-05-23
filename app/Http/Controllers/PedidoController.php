@@ -18,7 +18,7 @@ class PedidoController extends Controller
     {
         $pedidos = Pedido::paginate();
 
-        return view('pedido.items', compact('pedidos'))
+        return view('pedidos.listarPedidos', compact('pedidos'))
             ->with('i', ($request->input('page', 1) - 1) * $pedidos->perPage());
     }
 

@@ -63,7 +63,7 @@ Route::middleware([
 
 
     //Vista para productos de pedidos
-    Route::resource('/pedidos', PedidoController::class)->names('pedidos');
+    Route::resource('/pedido', PedidoController::class)->names('pedido');
     Route::get('/pedidos', [FrontController::class, 'index'])->name('indexItem');
     Route::post('/pedidos', [FrontController::class, 'filtroCategoria'])->name('filtroCategoria');
 
