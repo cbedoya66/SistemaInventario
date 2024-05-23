@@ -1,0 +1,5 @@
+@props(['for'])
+
+@error()
+    <p {{ $attributes->merge(['class' => 'text-sm text-red-600']) }}>{{ $message }}</p>
+@enderror

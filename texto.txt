@@ -1,0 +1,33 @@
+PEDIDOS
+
+
+   Schema::create('pedidos', function (Blueprint $table) {
+            $table->id();
+            $table->float('subtotal');
+            $table->float('total');
+            $table->timestamps();
+            $table->softDeletes();
+            $table->unsignedBigInteger('cliente_id')->nullable();
+            //llave foranea
+            $table->foreign('cliente_id')
+                ->references('id')->on('clientes')
+                ->onDelete('set null');
+        });
+
+
+PEDIDO_PRODUCT
+
+Schema::create('pedido_product', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('pedido_id')->nullable();
+            $table->unsignedBigInteger('producto_id')->nullable();
+            $table->softDeletes();
+            $table->timestamps();
+
+            //llaves foraneas
+            $table->foreign('pedido_id')
+                ->references('id')->on('pedidos');
+
+            $table->foreign('producto_id')
+                ->references('id')->on('products');
+        });
